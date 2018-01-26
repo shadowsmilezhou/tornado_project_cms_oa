@@ -73,8 +73,7 @@
                             <thead>
                             <tr>
                                 <th>内容</th>
-                                <th>发送者</th>
-                                <th>接收者</th>
+
                                 <th>发送类型</th>
                                 <th>发送时间</th>
                             </tr>
@@ -83,8 +82,7 @@
                                 {% for m in user_msg %}
                                     <tr>
                                         <td>{{m['content']}}</td>
-                                        <td>{{m['sender']}}</td>
-                                        <td>{{m['target']}}</td>
+
                                         <td>{{m['send_type']}}</td>
                                         <td>{{m['datetime']}}</td>
                                     </tr>

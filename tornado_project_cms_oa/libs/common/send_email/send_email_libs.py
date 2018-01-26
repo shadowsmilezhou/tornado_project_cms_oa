@@ -7,9 +7,9 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.image import MIMEImage
 from email.header import Header
 
-username = "3002832062@qq.com"              #qq账户*
-authorization_code = "ypthjafusngrdhbh"     #qq邮箱授权码*
-from_email = "3002832062@qq.com"            #发送的邮箱
+username = "630551760@qq.com"              #qq账户*
+authorization_code = "cyzkgygcitptbfaj"     #qq邮箱授权码*
+from_email = "630551760@qq.com"            #发送的邮箱
 
 
 def send_qq_plain_email(from_email, to_emails, title, content):

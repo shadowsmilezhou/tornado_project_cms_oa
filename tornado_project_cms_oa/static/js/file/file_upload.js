@@ -19,8 +19,8 @@ $(document).ready(function () {
         console.log('-------------------==================-----------------');
         console.log(formdata);
         $.ajax({
-            //'url': "/files/files_up_load",
-            'url': "/files/files_up_load_qiniu",
+            'url': "/files/files_up_load",
+            // 'url': "/files/files_up_load_qiniu",
             'type': "POST",
             'data': formdata,
             'headers':{
@@ -57,6 +57,7 @@ $(document).ready(function () {
        for (var i = 0; i < files_delete.length; ++i) {
            files_delete[i].onclick = function () {
                var uuid = this.getAttribute('data-id');
+               console.log(uuid);
                 event.preventDefault();
                 $.ajax({
                     'url': '/files/files_delete',

@@ -44,14 +44,14 @@
 
                     </p>
                     <p>文件uuid:  {{ files.uuid }}  </p>
-                    <p>文件路径:  {% if files.uuid.find('.') != -1 %}http://192.168.201.135:8000/images/{% else %}http://oq54v29ct.bkt.clouddn.com/{% end %}{{ files.uuid }}  </p>
+                    <p>文件路径:  {% if files.uuid.find('.') != -1 %}http://192.168.206.129:8000/images/{% else %}http://oxrm6w8zc.bkt.clouddn.com/{% end %}{{ files.uuid }}  </p>
                     <p>文件长度:  {{ files.content_length }}  </p>
 
 
                     <!-- 图片文件预览 -->
                     {% if files.filename.split('.')[-1] in ['jpg','bmp','png'] %}
                         <p>文件预览：</p>
-                        <img style="width: 500px;height: 400px;" src="/images/{{ files.uuid }}">
+                        <img style="width: 500px;height: 400px;" src="http://oxrm6w8zc.bkt.clouddn.com/{{ files.uuid }}">
 
                      <!-- 音频文件预览 -->
                     {% elif files.filename.split('.')[-1] in ['mp3'] %}

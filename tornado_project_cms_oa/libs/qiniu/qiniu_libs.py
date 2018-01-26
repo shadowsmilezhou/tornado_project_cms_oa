@@ -3,13 +3,13 @@
 from qiniu import Auth, put_file, etag, urlsafe_base64_encode,put_data
 import qiniu.config
 #需要填写你的 Access Key 和 Secret Key
-access_key = 'mhQj0QrtJ-APGgkVzd---zLYm3s_9OhIwOdLtiEC'
-secret_key = 'BcjyMsjqG4XMfNuyNqxhRCFn8oBBXX5DAdT7hijo'
+access_key = 'nzuhujy9DebvGiA5-cz4RGbW7iMBo1bQfnkoJ-N6'
+secret_key = '8fNUA0JhLU6MP-_vMYBUyfS85UaQf34AfUVS_b74'
 #构建鉴权对象
 
 q = Auth(access_key, secret_key)
 #要上传的空间
-bucket_name = 'rock1'
+bucket_name = 'xtblogs'
 #上传到七牛后保存的文件名
 
 def upload_qiniu_file_content(content):

@@ -12,10 +12,12 @@ def permission_manager_list_lib(self):
     users = User.all()
 
     #研发员工
-    dev_role = Role.by_name('研发员工')
-    dev_users = dev_role.users if dev_role else []
+    # dev_role = Role.by_name('研发员工')
+    # dev_users = dev_role.users if dev_role else []
+    # dev_users, dev_role.id
 
-    return roles, permissions, menus, handlers,users, dev_users, dev_role.id
+
+    return roles, permissions, menus, handlers,users
 
 
 def add_role_lib(self,name):

@@ -46,7 +46,7 @@ def save_file(self, upload_file):
     file_content = upload_file['body']
     old_file = Files.file_is_existed(file_content)
     if old_file is not None:
-        file_path = 'http://192.168.201.135:8000/images/' + old_file.uuid
+        file_path = 'http://192.168.206.129:8000/images/' + old_file.uuid
         return {'status': True, 'msg': '文件保存成功(其实文件在硬盘上)', 'data': file_path}
 
     url = 'files/' + uuidname
@@ -64,7 +64,7 @@ def save_file(self, upload_file):
     files.files_users.append(self.current_user)
     self.db.add(files)
     self.db.commit()
-    file_path = 'http://192.168.201.135:8000/images/' + files.uuid
+    file_path = 'http://192.168.206.129:8000/images/' + files.uuid
     return {'status': True, 'msg': '文件保存成功','data':file_path}
 
 
@@ -146,7 +146,7 @@ def create_sharing_links_lib(self, file_uuid):
     reids_json = json.dumps(redis_dict)
     #保存到redis中
     self.conn.setex('sharing_links:%s' % uu, reids_json, 300)
-    return 'http:192.168.201.135:8000/files/files_auth_sharing_links?uuid=%s'%uu, password
+    return 'http:192.168.206.129:8000/files/files_auth_sharing_links?uuid=%s'%uu, password
 
 
 def get_username_lib(self,uu):
@@ -242,6 +242,7 @@ def save_sharing_files_lib(self, uu):
 def del_files_lib(self, uuid):
     """001删除到回收站"""
     files = Files.by_uuid(uuid)
+    print files
     files.files_users.remove(self.current_user)
     files.files_users_del.append(self.current_user)
     self.db.add(files)
@@ -303,7 +304,7 @@ def save_qiniu_file(self, upload_file):
     file_content = upload_file['body']
     old_file = Files.file_is_existed(file_content)
     if old_file is not None:
-        file_path = 'http://oq54v29ct.bkt.clouddn.com/' + old_file.uuid
+        file_path = 'http://oxrm6w8zc.bkt.clouddn.com/' + old_file.uuid
         return {'status': True, 'msg': '文件保存成功(其实文件在硬盘上)', 'data': file_path}
 
     #上传到七牛
@@ -324,7 +325,7 @@ def save_qiniu_file(self, upload_file):
     files.files_users.append(self.current_user)
     self.db.add(files)
     self.db.commit()
-    file_path = 'http://oq54v29ct.bkt.clouddn.com/' + files.uuid
+    file_path = 'http://oxrm6w8zc.bkt.clouddn.com/' + files.uuid
     return {'status': True, 'msg': '文件上传到七牛成功', 'data': file_path}
 
 
@@ -335,7 +336,7 @@ def files_download_qiniu_lib(self, uuid):
     old_file = Files.by_uuid(uuid)
     if old_file is None:
         return {'status': False, 'msg': '文件不存在'}
-    qiniu_url = 'http://oq54v29ct.bkt.clouddn.com/%s' % uuid
+    qiniu_url = 'http://oxrm6w8zc.bkt.clouddn.com/%s' % uuid
     url = down_qiniu_file(qiniu_url)
     print url
     return {'status': True, 'data': url}

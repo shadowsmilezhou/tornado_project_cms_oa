@@ -1,0 +1,70 @@
+{% extends '../base/main_user_base.html' %}
+
+{% block head %}
+<link href="/static/common/sweetalert/sweetalert.css" rel="stylesheet">
+<script src="/static/common/sweetalert/sweetalert.min.js"></script>
+{% end %}
+
+
+{% block page_heading %}
+        <!-- page heading start-->
+        <div class="page-heading">
+            <h3>
+                权限管理 <small>Subtext for header</small>
+            </h3>
+            <ul class="breadcrumb">
+                <li>
+                    <a href="#">Dashboard</a>
+                </li>
+                <li>
+                    <a href="#">Extra Pages</a>
+                </li>
+                <li class="active">权限管理 </li>
+            </ul>
+        </div>
+        <!-- page heading end-->
+{% end %}
+
+
+{% block body_wrapper %}
+    <div class="wrapper">
+                    <header class="panel-heading">
+                        <p style="width: 100px;">
+                                <span class="input-group-addon btn btn-info" id="tag-btn">发送消息</span>
+                        </p>
+
+
+
+                        <form class= "login" method="post" action="/message/send_message">
+                                {% module xsrf_form_html() %}
+                                <p>内容列表<input type="text" name="content">
+                                    <input type="hidden" name="send_type" value="system">
+                                <input type="submit"></p>
+                        </form>
+                    </header>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>序号</th>
+                    <th>我的任务</th>
+                    <th>接收时间</th>
+                    <th>任务用户</th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for task in tasks %}
+                <tr>
+                    <td>{{task.id}}</td>
+                    <td>{{task.content}}</td>
+                    <td>{{task.createtime}}</td>
+                    <td>{{current_user}}</td>
+
+                </tr>
+                {% end %}
+
+            </tbody>
+        </table>
+        {% end %}

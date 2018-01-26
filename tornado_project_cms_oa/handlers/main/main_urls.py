@@ -7,6 +7,7 @@ from handlers.article.article_urls import article_urls
 from handlers.files.files_urls import files_urls
 from handlers.message.message_urls import message_urls
 from tornado.web import StaticFileHandler
+from handlers.tasks.tasks_urls import tasks_urls
 
 handlers = [
     (r'/', MainHandler),
@@ -18,4 +19,5 @@ handlers += permission_urls
 handlers += article_urls
 handlers += files_urls
 handlers += message_urls
+handlers += tasks_urls
 

@@ -34,11 +34,11 @@ def send_email_libs(self, email):
     redis_text = json.dumps(text_dict)
 
     content = """
-          <p>html邮件格式练习</p>
-          <p><a href="http://192.168.201.135:8000/account/auth_email_code?code={}&email={}&user_id={}">邮箱绑定链接</a></p>
+          <p>html 邮箱验证 </p>
+          <p>请点击以下邮箱进行验证<a href="http://192.168.206.129:8000/account/auth_email_code?code={}&email={}&user_id={}">邮箱绑定链接</a></p>
       """.format(email_code, email, u)
 
-    send_fail = send_qq_html_email("3002832062@qq.com", [email], "第一课", content)
+    send_fail = send_qq_html_email("630551760@qq.com", [email], "邮箱验证", content)
     if send_fail:
         return {'status': False, 'msg': "邮箱发送失败"}
     self.conn.setex('email:%s' % email, redis_text, 500)
@@ -78,8 +78,8 @@ def add_avatar_lib(self, avatar_data):
         print traceback.format_exc()
         print '-------------'
         send_qq_html_email(
-            "3002832062@qq.com",
-            ["3002832062@qq.com"],
+            "630551760@qq.com",
+            ["630551760@qq.com"],
             "第一课",
             traceback.format_exc().replace("\n", '<br>')
         )

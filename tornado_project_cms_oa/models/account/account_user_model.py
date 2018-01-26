@@ -14,6 +14,7 @@ from libs.db.dbsession import Base
 from libs.db.dbsession import dbSession
 from models.permission.permission_model import UserToRole
 from models.files.upload_file_model import FilesToUser,DelFilesToUser
+from models.tasks.tasks_publisher_accept_models import Tasks,UserToTasks
 
 class User(Base):
     """用户表"""
@@ -41,6 +42,8 @@ class User(Base):
     qq = Column(String(50))
 
     roles = relationship("Role", secondary=UserToRole.__table__)
+
+    tasks = relationship("Tasks", secondary=UserToTasks.__table__)
 
     articles = relationship("Article", backref="user")
 

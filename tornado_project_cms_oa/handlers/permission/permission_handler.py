@@ -21,15 +21,16 @@ from libs.permission.permission_libs import (
 class ManageHandler(BaseHandler):
     """01权限管理页面函数"""
     def get(self):
-        roles, permissions, menus, handlers, users, dev_users, dev_roleid = permission_manager_list_lib(self)
+        # , dev_users, dev_roleid
+        roles, permissions, menus, handlers, users = permission_manager_list_lib(self)
         kw = {
             'roles': roles,
             'permissions': permissions,
             'menus': menus,
             'handlers': handlers,
             'users': users,
-            'dev_users': dev_users,
-            'dev_roleid': dev_roleid
+            'dev_users': [],
+            'dev_roleid': [],
         }
         self.render('permission/permission_list.html', **kw)
 
@@ -43,7 +44,7 @@ class  AddRoleHandler(BaseHandler):
 
 class DelRoleHandler(BaseHandler):
     """03删除角色"""
-    @handler_permission('DelRoleHandler', 'handler')
+    # @handler_permission('DelRoleHandler', 'handler')
     def get(self):
         roleid = self.get_argument('id', '')
         del_role_lib(self, roleid)
@@ -60,7 +61,7 @@ class AddPermissionHandler(BaseHandler):
 
 class DelPermissionHandler(BaseHandler):
     """05删除权限函数"""
-    @handler_permission('DelPermissionHandler', 'handler')
+    # @handler_permission('DelPermissionHandler', 'handler')
     def get(self):
         permissionid = self.get_argument('id', '')
         del_permission_lib(self, permissionid)
@@ -136,7 +137,7 @@ class AddUserDevRoleHandler(BaseHandler):
 
 class DelUserDevRoleHandler(BaseHandler):
     """14为用户删除角色"""
-    @handler_permission('DelUserDevRoleHandler', 'handler')
+    # @handler_permission('DelUserDevRoleHandler', 'handler')
     def get(self):
         userid = self.get_argument('userid', '')
         roleid = self.get_argument('roleid', '')

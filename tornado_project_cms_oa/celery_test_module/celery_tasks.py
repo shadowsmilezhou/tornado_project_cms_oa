@@ -2,7 +2,7 @@
 from __future__ import absolute_import
 import time
 import redis
-from celery_test_module.celery import celery_test
+from celery_boss import celery_test
 conn = redis.Redis()
 
 

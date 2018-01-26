@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="dc6ae55e-d197-4067-ae01-e3779b0d609e" name="tornado_test_002" url="http://192.168.206.129">
+        <fileTransfer host="192.168.206.129" port="22" rootFolder="/home/pyvip/tornado_test_002" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

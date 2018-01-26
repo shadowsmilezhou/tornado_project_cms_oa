@@ -9,6 +9,7 @@ from handlers.main.main_urls import handlers
 from models.account.account_user_model import User
 from models.files.upload_file_model import Files
 from models.article import article_model
+from models.tasks import tasks_publisher_accept_models
 from libs.db import create_talbes
 from libs.db.dbsession import dbSession
 #定义一个默认的端口
@@ -33,7 +34,7 @@ if __name__ == "__main__":
     if options.runserver:
         app = tornado.web.Application(handlers, **settings) #创建应用实例
         http_server = tornado.httpserver.HTTPServer(app) #通过应用实例创建服务器实例
-        http_server.listen(options.port)  #监听9000端口
+        http_server.listen(options.port)  #监听8000端口
         print 'start server...'
         tornado.ioloop.IOLoop.instance().start() #启动服务器
 

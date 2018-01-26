@@ -13,7 +13,7 @@ files_urls = [
     (r'/files/files_up_load_qiniu', FilesUploadQiniuHandler),  #文件上传
     (r'/files/files_message', FilesMessageHandler), #文件详情
     (r'/files/files_page_list/([1-9]{1,3})', FilesPageListHandler), #文件分页
-    (r'/files/files_down', FilesDownLoadQiniuHandler), #文件分页
+    (r'/files/files_down', FilesDownLoadQiniuHandler), #
 
     # 分享链接接口
     (r'/files/files_create_sharing_links', FilesCreateSharingLinks),  # 创建分享链接
