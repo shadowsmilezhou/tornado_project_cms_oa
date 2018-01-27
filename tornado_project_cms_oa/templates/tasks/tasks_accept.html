@@ -50,6 +50,7 @@
                     <th>任务内容</th>
                     <th>发送时间</th>
                     <th>发送用户</th>
+                    <th>任务执行次数</th>
                     <th>是否接受任务</th>
                 </tr>
             </thead>
@@ -59,7 +60,8 @@
                     <td>{{task.id}}</td>
                     <td>{{task.content}}</td>
                     <td>{{task.createtime}}</td>
-                    <td>{{current_uer}}</td>
+                    <td>{{task.num_task}}</td>
+                    <td>{{task.users[0].name}}</td>
                     <td>
                         <a href="/tasks/accept_tasks?id={{task.id}}">确定</a>
                     </td>

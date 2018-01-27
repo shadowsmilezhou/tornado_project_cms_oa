@@ -1,5 +1,5 @@
 # -*- coding:utf-8 -*-
-from handlers.tasks.tasks_handlers import TaskPublishHanlder,TasksAcceptHanlder,UserAcceptHandler,MyTasksHandler
+from handlers.tasks.tasks_handlers import TaskPublishHanlder,TasksAcceptHanlder,UserAcceptHandler,MyTasksHandler,QuitTaskHandler,HaveDoneTasksHandler
 
 tasks_urls = [
     (r'/tasks/publisher',TaskPublishHanlder),
@@ -7,4 +7,6 @@ tasks_urls = [
     # (r'/tasks/category',TasksCategoryHanlder)
     (r'/tasks/accept_tasks',UserAcceptHandler),
     (r'/tasks/my_doing_tasks',MyTasksHandler),
+    (r'/tasks/delete',QuitTaskHandler),
+    (r'/tasks/havedone',HaveDoneTasksHandler),
 ]

@@ -32,6 +32,7 @@ class Tasks(Base):
     content = Column(Text)
 
     category_id = Column(Integer, ForeignKey('tasks_category.id'))
+    num_task = Column(Integer,default=0)
     createtime = Column(DateTime, index=True, default=datetime.now)
 
     users = relationship("User", secondary=UserToTasks.__table__)

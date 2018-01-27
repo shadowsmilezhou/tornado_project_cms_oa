@@ -3,7 +3,7 @@ from libs.flash.flash_lib import flash
 from libs.db.dbsession import dbSession
 from models.tasks.tasks_publisher_accept_models import Tasks,CategoryTasks
 
-def save_tasks_messages(self,content,current_user_name):
+def save_tasks_messages(self,content,current_user):
 
     if content is not None:
         content_task = Tasks.by_name(content)
@@ -13,6 +13,7 @@ def save_tasks_messages(self,content,current_user_name):
 
             task = Tasks()
             task.content = content
+            task.users.append(current_user)
 
             self.db.add(task)
             self.db.commit()

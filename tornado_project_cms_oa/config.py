@@ -11,7 +11,8 @@ settings = dict(
         xsrf_cookies = True,
         ui_methods= {
             "menu_permission": menu_permission,
-            "get_flashed_messages": get_flashed_messages
+            "get_flashed_messages": get_flashed_messages,
+            # "tasks_id":tasks_id_messages,
         },
         # pycket的配置信息
         pycket = {
