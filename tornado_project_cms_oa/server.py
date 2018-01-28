@@ -25,8 +25,9 @@ if __name__ == "__main__":
         create_talbes.run()
     if options.u:
         user = User()
-        user.name = 'zhangsan'
-        user.password = '222'
+        for i in range(12):
+            user.name = 'zhangsan%s'%i
+            user.password = '222'
         dbSession.add(user)
         dbSession.commit()
 

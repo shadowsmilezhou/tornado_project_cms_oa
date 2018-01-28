@@ -1,10 +1,12 @@
 #coding=utf-8
 import functools
 from models.permission.permission_model import Handler, Menu
+from models.tasks.tasks_publisher_accept_models import Tasks
 
 obj_model = {
     "handler": Handler,
     "menu": Menu,
+    "tasks":Tasks
 }
 
 # types = 'handler'
@@ -76,3 +78,4 @@ def menu_permission(self, menuname, types):
     if PermissionAuth().permission_auth(self.current_user, menuname, types, obj_model):
         return True
     return False
+

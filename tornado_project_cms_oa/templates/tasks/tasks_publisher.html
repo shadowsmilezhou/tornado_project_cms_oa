@@ -3,6 +3,7 @@
 {% block head %}
 <link href="/static/common/sweetalert/sweetalert.css" rel="stylesheet">
 <script src="/static/common/sweetalert/sweetalert.min.js"></script>
+<script src="/"></script>
 {% end %}
 
 
@@ -35,25 +36,38 @@
 
 
 
-                        <form class= "login" method="post" action="/tasks/publisher">
-                                {% module xsrf_form_html() %}
-                                <p>发布任务内容<input type="text" name="content">
-                                    <input type="hidden" name="send_type" value="system">
+                    <form class= "form" action="">
+                        {% module xsrf_form_html() %}
+                        <p>发布任务内容<input type="text" name="content" id="task_content">
+
+                     <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">分类</span>
+                            <select name="" id="category-select" class="form-control">
+                                {% for category in categorys %}
+								    <option value="{{category.id}}" selected="selected">{{category.name}}</option>
+							    {% end %}
+                            </select>
+                        </div>
+                    </div>
                                 <br/>
-                                <p>发布任务类型<input type="text" name="category">
+                                <!--<p>发布任务类型<input type="text" name="category">-->
 
-                                <input type="submit"></p>
+                                <input type="submit" id="submit-article-btn"></p>
                         </form>
-                        <!--<form class= "login" method="post" action="/tasks/category">-->
-                                <!--{% module xsrf_form_html() %}-->
 
-                                <!--<p>添加任务类型<input type="text" name="category">-->
 
-                                <!--<input type="submit"></p>-->
-                        <!--</form>-->
+
 
 
 
                     </header>
 
     {% end %}
+
+
+{% block end %}
+        <script src="/static/common/sweetalert/sweetalert.min.js"></script>
+        <script src="/static/js/tasks/add_tasks.js"></script>
+
+{% end %}

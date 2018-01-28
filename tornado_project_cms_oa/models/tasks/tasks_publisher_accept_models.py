@@ -34,6 +34,7 @@ class Tasks(Base):
     category_id = Column(Integer, ForeignKey('tasks_category.id'))
     num_task = Column(Integer,default=0)
     createtime = Column(DateTime, index=True, default=datetime.now)
+    # category_content = Column(String(10),unique=True)
 
     users = relationship("User", secondary=UserToTasks.__table__)
     # category = relationship('CategoryTasks', backref='tasks')
@@ -53,6 +54,10 @@ class Tasks(Base):
     @classmethod
     def by_name(cls, name):
         return dbSession.query(cls).filter_by(content=name).first()
+
+    @classmethod
+    def by_category(cls, category):
+        return dbSession.query(cls).filter_by(category_content=category).all()
 
 
 

@@ -42,6 +42,35 @@
                                 <input type="submit"></p>
                         </form>
                     </header>
+              <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon">分类</span>
+                            <select name="" id="category-select" class="form-control">
+                                {% for category in categorys %}
+								    <option value="{{category.id}}" selected="selected"><a href="/tasks/accept?category_task={{category.id}}">{{category.name}}</a></option>
+							    {% end %}
+                            </select>
+                        </div>
+                    </div>
+        <input type="submit" id="tasks-category-btn">
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>类型名称</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+
+                    {% for category in categorys%}
+                    <td><a href="/tasks/accept?category_task={{category.id}}">{{category.name}}</a></td>
+                    {% end %}
+                </tr>
+            </tbody>
+
+        </table>
 
         <table class="table table-striped">
             <thead>
@@ -51,6 +80,7 @@
                     <th>发送时间</th>
                     <th>发送用户</th>
                     <th>任务执行次数</th>
+                    <th>任务类型</th>
                     <th>是否接受任务</th>
                 </tr>
             </thead>
@@ -60,8 +90,9 @@
                     <td>{{task.id}}</td>
                     <td>{{task.content}}</td>
                     <td>{{task.createtime}}</td>
-                    <td>{{task.num_task}}</td>
                     <td>{{task.users[0].name}}</td>
+                    <td>{{task.num_task}}</td>
+                    <td><a href="/tasks/category_by_tasks?category_id={{task.category_id}}">{{task.category_id}}</a></td>
                     <td>
                         <a href="/tasks/accept_tasks?id={{task.id}}">确定</a>
                     </td>
@@ -70,3 +101,5 @@
             </tbody>
         </table>
         {% end %}
+
+
